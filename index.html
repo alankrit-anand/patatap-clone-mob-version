@@ -25,20 +25,20 @@
 
 			for(var i=0; i< $("input").val().length; i++){
 
-				var ascii = $("input").val().charCodeAt(0)
+				var ascii = $("input").val().charCodeAt(i)
 
 				if( ascii>96 && ascii<123){
 					var point = Point.random();
-					var maxPoint = new Point(view.size.width, view.size.height);
+					var maxPoint = new Point(view.size.width/2, view.size.height/2);
 					point = point * maxPoint ;
 					var newCircle = new Path.Circle(point, 400);
-					newCircle.fillColor = data[$("input").val()].color;
-					data[$("input").val()].sound.play();
+					newCircle.fillColor = data[$("input").val()[i]].color;
+					data[$("input").val()[i]].sound.play();
 					circles.push(newCircle);
-					console.log(newCircle);
 				}
-				$("input").val("");
+				
 			}
+			$("input").val("");
 		}
 
 		function onFrame(event){
