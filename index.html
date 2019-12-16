@@ -21,15 +21,16 @@
 		});
 
 		function onKeyDown(event){
-			$("input").val($("input").val().toLowerCase());
 
+			$("input").val($("input").val().toLowerCase());
+			
 			for(var i=0; i< $("input").val().length; i++){
 
 				var ascii = $("input").val().charCodeAt(i)
 
 				if( ascii>96 && ascii<123){
 					var point = Point.random();
-					var maxPoint = new Point(view.size.width/2, view.size.height/2);
+					var maxPoint = new Point(view.size.width, view.size.height);
 					point = point * maxPoint ;
 					var newCircle = new Path.Circle(point, 400);
 					newCircle.fillColor = data[$("input").val()[i]].color;
